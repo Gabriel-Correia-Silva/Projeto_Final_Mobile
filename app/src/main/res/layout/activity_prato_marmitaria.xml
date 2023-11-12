@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragments.PratoMarmitaria">
+
+    <ImageView
+        android:id="@+id/image_view_prato_marmitaria"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/cinza"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/botao_retornar_prato_marmitaria"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:backgroundTint="@color/white"
+        android:drawableRight="@drawable/caret_right_4"
+        android:gravity="center"
+        android:padding="21sp"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <TextView
+        android:id="@+id/name_view_prato_marmitaria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Nome do Prato"
+        android:textColor="@color/red"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@+id/image_view_prato_marmitaria" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="Descrição do Prato"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/name_view_prato_marmitaria" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/add_comentario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        android:text="Adicionar uma resenha"
+        android:backgroundTint="@color/white"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_comentarios"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_comentario" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
