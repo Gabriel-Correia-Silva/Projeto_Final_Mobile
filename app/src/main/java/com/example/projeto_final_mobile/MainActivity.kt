@@ -8,9 +8,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projeto_final_mobile.Dao.UsuarioDAO
-import com.example.projeto_final_mobile.R
-import com.example.projeto_final_mobile.activities.Cadastro
-import com.example.projeto_final_mobile.activities.MainScreen
+import com.example.projeto_final_mobile.Screens.Cadastro
+import com.example.projeto_final_mobile.Screens.MainScreen
 import com.example.projeto_final_mobile.utils.DBHelper
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_sing_in)
 
         usuarioDAO = UsuarioDAO(DBHelper(this))
 

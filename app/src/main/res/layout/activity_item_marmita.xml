@@ -13,28 +13,29 @@
         android:background="@color/black"
         app:layout_constraintTop_toTopOf="parent" />
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewmarmita"
         android:layout_width="110dp"
         android:layout_height="80dp"
         android:src="@drawable/baseline_home_30" />
 
     <TextView
-        android:id="@+id/nameMarmitaria"
+        android:id="@+id/nameMarmita"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="Nome marmita"
         android:textSize="30sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageViewmarmita"
         />
     <TextView
+        android:id="@+id/priceMarmita"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Preço: R$ 22,00"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/imageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewmarmita"
+        app:layout_constraintStart_toEndOf="@+id/imageViewmarmita" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

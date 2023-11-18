@@ -1,5 +1,5 @@
 package com.example.projeto_final_mobile.utils
-
+z
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -8,8 +8,10 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
 
     companion object {
         const val DATABASE_NAME = "DataBaseMarmitaria.db"
-        const val DATABASE_VERSION = 1
+        const val DATABASE_VERSION = 2
     }
+
+
 
     // Tabela Usuarios
     private val CREATE_TABLE_USUARIOS = """
@@ -30,24 +32,28 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
             id_sugestao INTEGER PRIMARY KEY,
             nome TEXT,
             endereco TEXT,
-            texto TEXT,
+            texto TEXT,z
             id_usuario INTEGER,
             FOREIGN KEY (id_usuario) REFERENCES Usuarios(id)
         );
     """.trimIndent()
 
-    // Tabela Marmitarias
+    // Tabela das Marmitarias
     private val CREATE_TABLE_MARMITARIAS = """
-        CREATE TABLE Marmitarias (
-            id INTEGER PRIMARY KEY,
-            endereco TEXT,
-            precoMedio REAL
-        );
-    """.trimIndent()
+    CREATE TABLE Marmitarias (
+        id INTEGER PRIMARY KEY,
+        nome TEXT,
+        endereco TEXT,
+        precoMedio REAL,
+        imagemMarmitaria BLOB,
+        caminhoImagem TEXT
+    );
+""".trimIndent()
+
 
     // Tabela Pratos
-    private val CREATE_TABLE_PRATOS = """
-        CREATE TABLE Pratos (
+    private val CREATE_TABLE_MARMITA = """
+        CREATE TABLE Marmita (
             id INTEGER PRIMARY KEY,
             nome TEXT,
             ingredientes TEXT,
@@ -82,12 +88,14 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         db?.execSQL(CREATE_TABLE_USUARIOS)
         db?.execSQL(CREATE_TABLE_SUGESTOES)
         db?.execSQL(CREATE_TABLE_MARMITARIAS)
-        db?.execSQL(CREATE_TABLE_PRATOS)
+        db?.execSQL(CREATE_TABLE_MARMITA)
         db?.execSQL(CREATE_TABLE_COMENTARIOS)
         db?.execSQL(CREATE_TABLE_COMENTARIOS_PRATOS)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        // Caso você precise atualizar o esquema do banco de dados
+    if (oldVersion < 2) {
+        db?.execSQL("ALTER TABLE Marmitarias ADD COLUMN caminhoImagem TEXT")
+    }
     }
 }

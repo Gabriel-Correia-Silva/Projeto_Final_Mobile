@@ -13,6 +13,14 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".test"
+            android:exported="false" />
+        <activity
+            android:name=".teste"
+            android:exported="false"
+            android:label="@string/title_activity_teste"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".adapter.ComentariosUsuario"
             android:exported="false" />
         <activity
@@ -25,7 +33,7 @@
             android:name=".fragments.ConteudoMarmitaria"
             android:exported="false" />
         <activity
-            android:name=".fragments.ItemLayout"
+            android:name=".fragments.ItemRecyclerViewFragment"
             android:exported="false" />
         <activity
             android:name=".fragments.MenuGaveta"
@@ -63,13 +71,13 @@
             android:value="YOUR_API_KEY" />
 
         <activity
-            android:name=".activities.Cadastro"
+            android:name=".Screens.Cadastro"
             android:exported="false" />
         <activity
-            android:name=".activities.Login"
+            android:name=".Screens.SingInActivity"
             android:exported="false" />
-        <activity android:name=".activities.MainScreen" />
-        <activity android:name=".activities.AlterarDados" />
+        <activity android:name=".Screens.MainScreen" />
+        <activity android:name=".Screens.ModifyDataActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

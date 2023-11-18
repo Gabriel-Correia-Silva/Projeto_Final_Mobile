@@ -6,5 +6,5 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.projeto_final_mobile.R
 
 class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val textView: TextView = view.findViewById(R.id.textView)
+    val textView: TextView = view.findViewById(R.id.itemtTextViewFragment)
 }

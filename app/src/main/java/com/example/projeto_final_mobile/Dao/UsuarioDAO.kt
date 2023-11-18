@@ -4,87 +4,100 @@ import android.content.ContentValues
 import com.example.projeto_final_mobile.models.Usuario
 import com.example.projeto_final_mobile.utils.DBHelper
 
-class UsuarioDAO(private val dbHelper: DBHelper) {
-
-    fun inserirUsuario(usuario: Usuario): Long {
-    val db = dbHelper.writableDatabase
-    val values = ContentValues().apply {
-        put("nameUser", usuario.nome)
-        put("sobrenomeUser", usuario.sobrenome)
-        put("enderecoUser", usuario.endereco)
-        put("emailUser", usuario.email)
-        put("passwordUser", usuario.senha)
-        put("imagem", usuario.caminhoImagem) // Salva o caminho da imagem
-    }
-    val id = db.insert("Usuarios", null, values)
-    db.close()
-    return id
-}   
-    
-fun getUsuarioByEmailAndSenha(email: String, senha: String): Usuario? {
-    val db = dbHelper.readableDatabase
-    val cursor = db.query("Usuarios", null, "emailUser=? AND passwordUser=?", arrayOf(email, senha), null, null, null)
-
-    var usuario: Usuario? = null
-    if (cursor.moveToFirst()) {
-        val id = cursor.getLong(cursor.getColumnIndex("id"))
-        val nome = cursor.getString(cursor.getColumnIndex("nameUser"))
-        val sobrenome = cursor.getString(cursor.getColumnIndex("sobrenomeUser"))
-        val endereco = cursor.getString(cursor.getColumnIndex("enderecoUser"))
-        val caminhoImagem = cursor.getString(cursor.getColumnIndex("imagem")) // Obtém o caminho da imagem
-
-        usuario = Usuario(id, nome, sobrenome, endereco, email, senha, caminhoImagem)
-    }
-
-    cursor.close()
-    db.close()
-    return usuario
-}
-    
-
-
-    fun obterUsuarios(): List<Usuario> {
-        val usuarios = mutableListOf<Usuario>()
-        val db = dbHelper.readableDatabase
-        val cursor = db.query("Usuarios", null, null, null, null, null, null)
-
-        while (cursor.moveToNext()) {
-            val id = cursor.getLong(cursor.getColumnIndex("id"))
-            val nome = cursor.getString(cursor.getColumnIndex("nameUser"))
-            val sobrenome = cursor.getString(cursor.getColumnIndex("sobrenomeUser"))
-            val endereco = cursor.getString(cursor.getColumnIndex("enderecoUser"))
-            val email = cursor.getString(cursor.getColumnIndex("emailUser"))
-            val senha = cursor.getString(cursor.getColumnIndex("passwordUser"))
-            val caminhoImagem = cursor.getString(cursor.getColumnIndex("imagem")) // Obtém o caminho da imagem
-
-            val usuario = Usuario(id, nome, sobrenome, endereco, email, senha, caminhoImagem)
-            usuarios.add(usuario)
+// Classe UsuarioDAO para gerenciar as operações de banco de dados para a classe Usuario
+class UsuarioDAO {
+    // Método para inserir um novo usuário na lista de usuários
+    // Retorna false se o e-mail do novo usuário já existir na lista
+    fun insert(novoUsuario: Usuario): Boolean {
+        for (usuario in listaUsuarios) {
+            if (novoUsuario.email == usuario.email)
+                return false
         }
-
-        cursor.close()
-        db.close()
-        return usuarios
+        listaUsuarios.add(novoUsuario)
+        return true
     }
 
-    fun atualizarUsuario(usuario: Usuario) {
-        val db = dbHelper.writableDatabase
-        val values = ContentValues().apply {
-            put("nameUser", usuario.nome)
-            put("sobrenomeUser", usuario.sobrenome)
-            put("enderecoUser", usuario.endereco)
-            put("emailUser", usuario.email)
-            put("passwordUser", usuario.senha)
-            put("imagem", usuario.caminhoImagem)
-            // Coloque aqui a lógica para lidar com a imagem, se necessário
+    // Método para encontrar um usuário na lista de usuários usando o e-mail e a senha
+    // Retorna o usuário se encontrado, ou null se não encontrado
+    fun find(email: String, password: String): Usuario? {
+        for (usuario in listaUsuarios) {
+            if (usuario.email == email && usuario.password == password)
+                return usuario
         }
-
-        db.update("Usuarios", values, "id=?", arrayOf(usuario.id.toString()))
-        db.close()
+        return null
     }
 
-    fun excluirUsuario(usuario: Usuario) {
-        val db = dbHelper.writableDatabase
-        db.delete("Usuarios", "id=?", arrayOf(usuario.id.toString()))
-        db.close()
+    // Método para verificar se um usuário existe na lista de usuários usando o id
+    // Retorna true se o usuário existir, ou false se não existir
+    fun find(idUsuario: UUID): Boolean {
+        for (usuario in listaUsuarios) {
+            if (usuario.idUsuario == idUsuario) {
+                return true
+            }
+        }
+        return false
+    }
+
+    // Método para inserir uma foto para um usuário
+    // Retorna true se a foto foi inserida com sucesso, ou false se o usuário não existir
+    fun insertFoto(usuario: Usuario, foto: Foto): Boolean {
+        if (find(usuario.idUsuario)) {
+            usuario.idFoto = foto.idFoto
+            return true
+        }
+        return false
+    }
+
+    // Método para atualizar um usuário na lista de usuários
+    // Não retorna nada
+    fun setUsuario(_usuario: Usuario) {
+        for (usuario in listaUsuarios) {
+            if (usuario.idUsuario == _usuario.idUsuario) {
+                usuario.nome = _usuario.nome
+                usuario.sobrenome = _usuario.sobrenome
+                usuario.email = _usuario.email
+            }
+        }
+    }
+
+    // Método para obter um usuário da lista de usuários usando o id
+    // Retorna o usuário se encontrado, ou null se não encontrado
+    fun getById(idUsuario: UUID?): Usuario? {
+        for (usuario in listaUsuarios) {
+            if (usuario.idUsuario == idUsuario) {
+                return usuario
+            }
+        }
+        return null
+    }
+
+    // Método para verificar se um e-mail já existe na lista de usuários
+    // Retorna true se o e-mail existir, ou false se não existir
+    fun emailExists(email: String): Boolean {
+        for (usuario in listaUsuarios) {
+            if (usuario.email == email)
+                return true
+        }
+        return false
+    }
+
+    // Objeto companion que contém a lista de usuários
+    companion object {
+        val listaUsuarios: MutableList<Usuario> = mutableListOf()
     }
 }
+
+// Classe de dados para representar um usuário
+data class Usuario(
+    var idUsuario: UUID,
+    var email: String,
+    var nome: String,
+    var sobrenome: String?,
+    var password: String,
+    var idFoto: UUID?
+)
+
+// Classe de dados para representar uma foto
+data class Foto(
+    var idFoto: UUID
+)
