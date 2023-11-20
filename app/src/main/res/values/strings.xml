@@ -73,4 +73,6 @@
     <string name="sugestoes">Sugestões</string>
     <string name="sair">Sair</string>
     <string name="title_activity_teste">teste</string>
+    <string name="title_activity_sugestoes">Sugestoes</string>
+    <string name="title_activity_menu_gaveta">MenuGaveta</string>
 </resources>

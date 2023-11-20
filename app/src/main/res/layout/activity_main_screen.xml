@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Screens.MainScreen"
+    tools:context="menu.projeto_final_mobile.Screens.MainScreen"
     android:background="@color/white"	
     android:id="@+id/main_screen">
 
@@ -37,7 +37,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ImageButton
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ImageButtonAlterarDados"
         android:layout_width="48sp"
         android:layout_height="48sp"
@@ -48,6 +48,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/top_view_main"
         app:layout_constraintEnd_toEndOf="@id/top_view_main"
         app:layout_constraintTop_toTopOf="@+id/top_view_main"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.ImageButton.Circle"
 
         />
 
@@ -80,13 +81,14 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerViewScreen"
-        android:name="com.example.projeto_final_mobile.fragments.MapFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

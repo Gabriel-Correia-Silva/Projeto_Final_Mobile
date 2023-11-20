@@ -1,7 +1,7 @@
-package com.example.projeto_final_mobile.Screens
+package com.projeto_final_mobile.Screens
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.projeto_final_mobile.R
 
 class SingInActivity : AppCompatActivity() {

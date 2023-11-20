@@ -8,7 +8,7 @@
     tools:context=".Screens.ModifyDataActivity">
 
     <Button
-        android:id="@+id/botao_retornar"
+        android:id="@+id/botao_retornar_main_screen"
         android:layout_width="60sp"
         android:layout_height="60sp"
         android:backgroundTint="#00FFFFFF"
@@ -18,16 +18,15 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
-    <ImageButton
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageButton"
         android:layout_width="150sp"
         android:layout_height="150sp"
         android:layout_marginTop="40sp"
-        android:background="@drawable/oval_image_button"
-        android:src="@drawable/baseline_person_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.ImageButton.Circle"
         tools:src="@drawable/baseline_person_24" />
 
     <TextView
@@ -46,7 +45,7 @@
         android:layout_height="50sp"
         android:layout_marginBottom="360sp"
         android:background="@drawable/rounded_to_edittext"
-        android:hint="Joao"
+        android:hint=""
         android:paddingStart="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/cinza"
@@ -72,7 +71,7 @@
         android:layout_height="50sp"
         android:layout_marginTop="50sp"
         android:background="@drawable/rounded_to_edittext"
-        android:hint="Pé de cueco"
+        android:hint=""
         android:paddingStart="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/cinza"
@@ -96,7 +95,7 @@
         android:layout_height="50sp"
         android:layout_marginTop="50sp"
         android:background="@drawable/rounded_to_edittext"
-        android:hint="Av. Pé de Cueco, 587 - Centro"
+        android:hint=""
         android:paddingStart="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/cinza"
@@ -118,7 +117,7 @@
         android:layout_height="50sp"
         android:layout_marginTop="50sp"
         android:background="@drawable/rounded_to_edittext"
-        android:hint="Joao@gmail.com"
+        android:hint=""
         android:paddingStart="10dp"
         android:textColorHint="@color/cinza"
         app:layout_constraintEnd_toEndOf="parent"
@@ -140,7 +139,7 @@
         android:layout_height="50sp"
         android:layout_marginTop="50sp"
         android:background="@drawable/rounded_to_edittext"
-        android:hint="********"
+        android:hint=""
         android:inputType="textPassword"
         android:paddingStart="10dp"
         android:textColorHint="@color/cinza"

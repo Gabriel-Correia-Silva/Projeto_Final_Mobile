@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
     id("com.google.devtools.ksp") version "1.5.31-1.0.0"
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -42,6 +43,24 @@ android {
 
 dependencies {
 
+    var room_version = "2.4.1";
+
+    implementation("androidx.room:room-runtime:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+
+
+    implementation("androidx.room:room-ktx:$room_version")
+
+
+    testImplementation("androidx.room:room-testing:$room_version")
+
+    implementation ("androidx.cardview:cardview:1.0.0")
+    implementation ("androidx.fragment:fragment-ktx:1.3.6")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0")
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+    implementation ("com.google.android.material:material:1.4.0")
+    implementation ("com.github.yalantis:ucrop:2.2.8")
     implementation ("org.xerial:sqlite-jdbc:3.34.0")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

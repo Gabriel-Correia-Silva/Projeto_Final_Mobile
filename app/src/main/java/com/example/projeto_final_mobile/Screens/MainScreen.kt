@@ -1,96 +1,54 @@
-package com.example.projeto_final_mobile.Screens
+package com.projeto_final_mobile.Screens
 
-import MarmitariaAdapter
-import com.example.projeto_final_mobile.fragments.RecyclerViewFragment
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageButton
-import android.widget.Toast
-import androidx.core.view.GravityCompat
+import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projeto_final_mobile.Dao.MarmitariaDAO
+import com.bumptech.glide.Glide
 import com.example.projeto_final_mobile.R
-import com.example.projeto_final_mobile.R.id.drawer_layout
-import com.example.projeto_final_mobile.R.id.nav_view
-import com.example.projeto_final_mobile.fragments.ItemMarmita
-import com.example.projeto_final_mobile.fragments.MapFragment
-import com.example.projeto_final_mobile.models.Marmitaria
-import com.example.projeto_final_mobile.utils.DBHelper
+import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.navigation.NavigationView
-
+import com.projeto_final_mobile.database.AppDatabase
+import com.projeto_final_mobile.utils.DataSource
+import com.projeto_final_mobile.utils.MapFragment
+import com.projeto_final_mobile.utils.RecyclerViewFragment
+import com.projeto_final_mobile.adapter.MarmitariaAdapter
 
 
 class MainScreen : AppCompatActivity() {
 
-    private lateinit var adapter: MarmitariaAdapter
-
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
+    private lateinit var marmitariaAdapter: MarmitariaAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu_gaveta)
-
-        drawerLayout = findViewById(drawer_layout)
-        navView = findViewById(nav_view)
-
-        // Configura o botão de abertura do menu lateral
-        val buttonDrawer = findViewById<Button>(R.id.buttonDrawer)
-        buttonDrawer?.setOnClickListener {
-            drawerLayout.openDrawer(GravityCompat.START)
-        }
-
-        // Configura o menu lateral
-        navView.setNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.nav_home -> {
-                    // Verifica se já está na tela inicial
-                    if (getCallingActivity()?.className != MainScreen::class.java.name && this::class.java.name != MainScreen::class.java.name) {
-                        val intent = Intent(this, MainScreen::class.java)
-                        startActivity(intent)
-                    } else {
-                        Toast.makeText(this, "Você já está na tela inicial", Toast.LENGTH_SHORT).show()
-                    }
-                }
-                R.id.nav_new_item -> {
-                    // TODO: Implementar a página de sugestão
-                }
-            }
-            true
-        }
+        setContentView(R.layout.activity_main_screen)
 
         // Configura o botão de alteração de dados do usuário
-        val myImageButton = findViewById<ImageButton>(R.id.ImageButtonAlterarDados)
-        myImageButton.setOnClickListener {
-            val intent = Intent(this, ModifyDataActivity::class.java)
+        val userDao = AppDatabase.getDatabase(this).userDao()
+        val sharedPreferences = getSharedPreferences("com.example.projeto_final_mobile", Context.MODE_PRIVATE)
+        val userEmail = sharedPreferences.getString("user_email", "")
+        val userLiveData = userDao.getUserByEmail(userEmail!!)
+        val imageButtonAlterarDados: ShapeableImageView = findViewById(R.id.ImageButtonAlterarDados)
+        userLiveData.observe(this) { user ->
+            val userPhotoPath = user?.foto
+            if (userPhotoPath != null) {
+                imageButtonAlterarDados.setImageURI(Uri.parse(userPhotoPath))
+                Glide.with(this)
+                    .load(userPhotoPath)
+                    .into(imageButtonAlterarDados)
+            }
+        }
+        imageButtonAlterarDados.setOnClickListener {
+            val intent = Intent(this, com.projeto_final_mobile.Screens.ModifyDataActivity::class.java)
             startActivity(intent)
         }
-
-        // Configura o RecyclerView
-        val dbHelper = DBHelper(this)
-        val marmitariaDAO = MarmitariaDAO(dbHelper)
-        val marmitarias = marmitariaDAO.obterMarmitarias()
-
-        val marmitariaAdapter = MarmitariaAdapter(this, marmitarias, object : MarmitariaAdapter.OnItemClickListener {
-            override fun onItemClick(marmitaria: Marmitaria) {
-                val intent = Intent(this@MainScreen, ItemMarmita::class.java)
-                intent.putExtra("marmitaria", marmitaria)
-                startActivity(intent)
-            }
-        })
-
-        val meuRecyclerView = findViewById<RecyclerView>(R.id.recyclerViewListfragment)
-        meuRecyclerView?.apply {
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@MainScreen)
-            adapter = marmitariaAdapter
-        }
-
-
 
         // Configura os botões de seleção de tela
         val botaoMapa = findViewById<Button>(R.id.showMap)
@@ -112,7 +70,22 @@ class MainScreen : AppCompatActivity() {
                 .replace(R.id.fragmentContainerViewScreen, RecyclerViewFragment())
                 .commit()
         }
-        
 
+        // Chama as funções de inicialização do RecyclerView e adição de dados
+        initRecyclerView()
+        addDataSource()
+    }
+
+    // Função para adicionar os dados ao DataSource
+    private fun addDataSource() {
+        val dataSource = DataSource.createDataSet()
+    }
+
+    // Função para inicializar o RecyclerView
+    private fun initRecyclerView() {
+        marmitariaAdapter = MarmitariaAdapter()
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewListfragment)
+        recyclerView.layoutManager = LinearLayoutManager(this@MainScreen)
+        recyclerView.adapter = marmitariaAdapter
     }
 }

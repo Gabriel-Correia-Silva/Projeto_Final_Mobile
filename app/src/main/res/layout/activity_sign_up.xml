@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Cadastro">
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/botao_retornar"
@@ -13,172 +13,156 @@
         android:layout_height="60sp"
         android:backgroundTint="#00FFFFFF"
         android:drawableRight="@drawable/caret_right_4"
-        android:gravity="center"
-        android:padding="21sp"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:gravity="right"
+
+         />
 
     <TextView
-        android:id="@+id/Lcadastro"
+        android:id="@+id/TextViewcadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Cadastro"
         android:textColor="@color/red"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/nome_cadastro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/botao_retornar" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nome"
-        android:textSize="20sp"
-        android:paddingBottom="4sp"
-        app:layout_constraintStart_toStartOf="@+id/nome_cadastro"
-        app:layout_constraintBottom_toTopOf="@+id/nome_cadastro"
-        />
-
-    <EditText
-        android:id="@+id/nome_cadastro"
+    <LinearLayout
         android:layout_width="350sp"
-        android:layout_height="50sp"
-        android:layout_marginBottom="390sp"
-        android:background="@drawable/rounded_to_edittext"
-        android:hint="Joao"
-        android:paddingStart="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/cinza"
+        android:layout_height="0sp"
+        android:orientation="vertical"
+        android:layout_marginTop="120sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome"
+            android:textSize="16sp"
+            android:layout_marginTop="10sp"
+            />
+        <EditText
+            android:id="@+id/nome_cadastro"
+            android:layout_width="350sp"
+            android:layout_height="50sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/rounded_to_edittext"
+            android:hint="Joao"
+            android:paddingStart="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/cinza" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sobrenome"
+            android:textSize="16sp"
+            android:layout_marginTop="10sp"
+            />
+
+        <EditText
+            android:id="@+id/sobrenome_cadastro"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
+            android:layout_width="350sp"
+            android:layout_height="50sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/rounded_to_edittext"
+            android:hint="Pereira"
+            android:paddingStart="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/cinza" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Endereço"
+            android:textSize="16sp"
+            android:layout_marginTop="10sp"
+            />
+        <EditText
+            android:id="@+id/endereco_cadastro"
+            android:layout_width="350sp"
+            android:layout_height="50sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/rounded_to_edittext"
+            android:hint="Av, 587 - Centro"
+            android:paddingStart="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/cinza" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="16sp"
+            android:layout_marginTop="10sp"
+            />
+        <EditText
+            android:id="@+id/email_cadastro"
+            android:layout_width="350sp"
+            android:layout_height="50sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/rounded_to_edittext"
+            android:hint="Joao@gmail.com"
+            android:paddingStart="10dp"
+            android:textColorHint="@color/cinza" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Senha"
+            android:textSize="16sp"
+            android:layout_marginTop="10sp"
+            />
+        <EditText
+            android:id="@+id/senha_cadastro"
+            android:layout_width="350sp"
+            android:layout_height="50sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/rounded_to_edittext"
+            android:hint="********"
+            android:inputType="textPassword"
+            android:paddingStart="10dp"
+            android:textColorHint="@color/cinza" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirma senha"
+            android:textSize="16sp"
+            android:layout_marginTop="10sp"
+            />
+        <EditText
+            android:id="@+id/senha_confirma"
+            android:layout_width="350sp"
+            android:layout_height="50sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/rounded_to_edittext"
+            android:hint="********"
+            android:paddingStart="10dp"
+            android:textColorHint="@color/cinza" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/botao_cadastrar"
+            android:layout_width="350sp"
+            android:layout_height="50sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40sp"
+            android:background="@drawable/rounded_to_button"
+            android:text="Confirmar"
+            android:textColor="#FFFFFF"
+            android:textColorHint="@color/cinza" />
+    </LinearLayout>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sobrenome"
-        android:paddingBottom="4sp"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/sobrenome_cadastro"
-        app:layout_constraintBottom_toTopOf="@+id/sobrenome_cadastro"
-        />
-    <EditText
-        android:id="@+id/sobrenome_cadastro"
-        style="@style/Widget.AppCompat.AutoCompleteTextView"
-        android:layout_width="350sp"
-        android:layout_height="50sp"
-        android:layout_marginTop="40sp"
-        android:background="@drawable/rounded_to_edittext"
-        android:hint="Pé de cueco"
-        android:paddingStart="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/cinza"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nome_cadastro" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Endereço"
-        android:paddingBottom="4sp"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/endereco_cadastro"
-        app:layout_constraintBottom_toTopOf="@+id/endereco_cadastro"
-        />
-
-    <EditText
-        android:id="@+id/endereco_cadastro"
-        android:layout_width="350sp"
-        android:layout_height="50sp"
-        android:layout_marginTop="40sp"
-        android:background="@drawable/rounded_to_edittext"
-        android:hint="Av. Pé de Cueco, 587 - Centro"
-        android:paddingStart="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/cinza"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sobrenome_cadastro" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:paddingBottom="4sp"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/email_cadastro"
-        app:layout_constraintBottom_toTopOf="@+id/email_cadastro"
-        />
-    <EditText
-        android:id="@+id/email_cadastro"
-        android:layout_width="350sp"
-        android:layout_height="50sp"
-        android:layout_marginTop="40sp"
-        android:background="@drawable/rounded_to_edittext"
-        android:hint="Joao@gmail.com"
-        android:paddingStart="10dp"
-        android:textColorHint="@color/cinza"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/endereco_cadastro" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Senha"
-        android:paddingBottom="4sp"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/senha_cadastro"
-        app:layout_constraintBottom_toTopOf="@+id/senha_cadastro"
-        />
-    <EditText
-        android:id="@+id/senha_cadastro"
-        android:layout_width="350sp"
-        android:layout_height="50sp"
-        android:layout_marginTop="40sp"
-        android:background="@drawable/rounded_to_edittext"
-        android:hint="********"
-        android:inputType="textPassword"
-        android:paddingStart="10dp"
-        android:textColorHint="@color/cinza"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email_cadastro" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Confirmar senha"
-        android:paddingBottom="4sp"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/senha_confirma"
-        app:layout_constraintBottom_toTopOf="@+id/senha_confirma"
-        />
-    <EditText
-        android:id="@+id/senha_confirma"
-        android:layout_width="350sp"
-        android:layout_height="50sp"
-        android:layout_marginTop="40sp"
-        android:background="@drawable/rounded_to_edittext"
-        android:hint="********"
-        android:paddingStart="10dp"
-        android:textColorHint="@color/cinza"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/senha_cadastro" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/botao_cadastrar"
-        android:layout_width="350sp"
-        android:layout_height="50sp"
-        android:layout_marginTop="40sp"
-        android:background="@drawable/rounded_to_button"
-        android:text="Confirmar"
-        android:textColor="#FFFFFF"
-        android:textColorHint="@color/cinza"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/senha_confirma" />
 </androidx.constraintlayout.widget.ConstraintLayout>

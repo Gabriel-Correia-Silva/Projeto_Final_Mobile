@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="90dp"
     android:background="@color/white"
-    tools:context=".fragments.ItemMarmita">
+    android:id="@+id/item_marmita"
+    tools:context=".utils.ItemMarmita">
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
