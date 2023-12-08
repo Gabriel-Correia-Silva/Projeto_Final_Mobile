@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navegacao_gaveta"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        tools:layout="@layout/home_fragment"
+        android:name="com.example.projeto_final_mobile.fragments.HomeFragment"
+        android:label="Home" >
+        <action
+            android:id="@+id/action_homeFragment_to_sugestaoFragment"
+            app:destination="@id/sugestaoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_modifydataFragment"
+            app:destination="@id/modifydataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/modifydataFragment"
+        tools:layout="@layout/modifydata_fragment"
+        android:name="com.example.projeto_final_mobile.fragments.ModifydataFragment"
+        android:label="Alterar dados" />
+    <fragment
+        android:id="@+id/sugestaoFragment"
+        tools:layout="@layout/sugestao_fragment"
+        android:name="com.example.projeto_final_mobile.fragments.SugestaoFragment"
+        android:label="Sugestões" />
+</navigation>

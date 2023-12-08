@@ -14,10 +14,10 @@ interface MarmitariaDao {
     fun insertMarmitaria(marmitaria: Marmitaria)
 
     @Query("SELECT * FROM Marmitaria WHERE email = :email AND senha = :senha")
-    fun getMarmitariaByEmailAndSenha(email: String, senha: String): LiveData<List<Marmitaria>>
+    fun getMarmitariaByEmailAndSenha(email: String, senha: String): List<Marmitaria>
 
     @Query("SELECT * FROM Marmitaria WHERE email = :email")
-    fun getMarmitariaByEmail(email: String): LiveData<Marmitaria>
+    suspend fun getMarmitariaByEmail(email: String): Marmitaria?
 
     @Delete
     fun deleteMarmitaria(marmitaria: Marmitaria)
@@ -26,12 +26,13 @@ interface MarmitariaDao {
     fun deleteMarmitariaById(email: String): Int
 
     @Query("SELECT * FROM Marmitaria WHERE email = :email")
-    fun getMarmitaria(email: String): LiveData<Marmitaria>
+    fun getMarmitaria(email: String): Marmitaria?
 
     @Update
     fun updateMarmitaria(marmitaria: Marmitaria)
 
     @Query("SELECT * FROM Marmitaria")
-    fun getAllMarmitarias(): LiveData<List<Marmitaria>>
+    suspend fun getAllMarmitaria(): List<Marmitaria>
 
 }
+

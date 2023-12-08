@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/modificar_dados"
+    app:startDestination="@id/fragmentDeslogarModificar">
+    <fragment
+        android:id="@+id/fragmentDeslogarModificar"
+        android:name="com.example.projeto_final_mobile.fragments.FragmentDeslogarModificar"
+        android:label="FragmentDeslogarModificar" >
+        <action
+            android:id="@+id/action_fragmentDeslogarModificar_to_fragmentAlterarDataUser"
+            app:destination="@id/fragmentAlterarDataUser" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAlterarDataUser"
+        android:name="com.example.projeto_final_mobile.fragments.FragmentAlterarDataUser"
+        android:label="FragmentAlterarDataUser" />
+</navigation>

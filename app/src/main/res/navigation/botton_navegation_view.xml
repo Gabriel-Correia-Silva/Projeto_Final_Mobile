@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/botton_navegation_view"
+    app:startDestination="@id/listaMarmitariasFragment">
+
+    <fragment
+        android:id="@+id/listaMarmitariasFragment"
+        android:name="com.example.projeto_final_mobile.screens.home.ListaMarmitariasFragment"
+        android:label="activity_lista_marmitarias_fragment"
+        tools:layout="@layout/activity_lista_marmitarias_fragment" />
+    <fragment
+        android:id="@+id/mapaMarmitariasFragment"
+        android:name="com.example.projeto_final_mobile.MapsFragment"
+        android:label="activity_mapa_marmitarias_fragment"
+        tools:layout="@layout/fragment_maps" />
+</navigation>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.navigation:navigation-testing:2.7.5@aar" external-system-id="GRADLE">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/566bca82c09448d6e2ef846032605c01/transformed/navigation-testing-2.7.5/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/566bca82c09448d6e2ef846032605c01/transformed/navigation-testing-2.7.5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/566bca82c09448d6e2ef846032605c01/transformed/navigation-testing-2.7.5/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-testing/2.7.5/551ae6fc097c0584ef9df480f0bffea954af0c5e/navigation-testing-2.7.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

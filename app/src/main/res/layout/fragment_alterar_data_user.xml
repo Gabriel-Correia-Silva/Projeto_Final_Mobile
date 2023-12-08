@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageButton"
+                android:layout_width="150sp"
+                android:layout_height="150sp"
+                android:layout_marginTop="50sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.ImageButton.Circle"
+                tools:src="@drawable/baseline_person_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4sp"
+                android:text="Nome"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/nome_alterar"
+                app:layout_constraintStart_toStartOf="@+id/nome_alterar"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+            <EditText
+                android:id="@+id/nome_alterar"
+                android:layout_width="350sp"
+                android:layout_height="50sp"
+                android:layout_marginBottom="360sp"
+                android:background="@drawable/rounded_to_edittext"
+                android:hint=""
+                android:paddingStart="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/cinza"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageButton" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sobrenome"
+                android:paddingBottom="4sp"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/sobrenome_alterar"
+                app:layout_constraintBottom_toTopOf="@+id/sobrenome_alterar"
+                />
+            <EditText
+                android:id="@+id/sobrenome_alterar"
+                style="@style/Widget.AppCompat.AutoCompleteTextView"
+                android:layout_width="350sp"
+                android:layout_height="50sp"
+                android:layout_marginTop="50sp"
+                android:background="@drawable/rounded_to_edittext"
+                android:hint=""
+                android:paddingStart="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/cinza"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nome_alterar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Endereço"
+                android:paddingBottom="4sp"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/endereco_alterar"
+                app:layout_constraintBottom_toTopOf="@+id/endereco_alterar"
+                />
+
+            <EditText
+                android:id="@+id/endereco_alterar"
+                android:layout_width="350sp"
+                android:layout_height="50sp"
+                android:layout_marginTop="50sp"
+                android:background="@drawable/rounded_to_edittext"
+                android:hint=""
+                android:paddingStart="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/cinza"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sobrenome_alterar" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:paddingBottom="4sp"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/email_alterar"
+                app:layout_constraintBottom_toTopOf="@+id/email_alterar"
+                />
+            <EditText
+                android:id="@+id/email_alterar"
+                android:layout_width="350sp"
+                android:layout_height="50sp"
+                android:layout_marginTop="50sp"
+                android:background="@drawable/rounded_to_edittext"
+                android:hint=""
+                android:paddingStart="10dp"
+                android:textColorHint="@color/cinza"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/endereco_alterar" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Senha"
+                android:paddingBottom="4sp"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/senha_alterar"
+                app:layout_constraintBottom_toTopOf="@+id/senha_alterar"
+                />
+            <EditText
+                android:id="@+id/senha_alterar"
+                android:layout_width="350sp"
+                android:layout_height="50sp"
+                android:layout_marginTop="50sp"
+                android:background="@drawable/rounded_to_edittext"
+                android:hint=""
+                android:inputType="textPassword"
+                android:paddingStart="10dp"
+                android:textColorHint="@color/cinza"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/email_alterar" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/botao_confimar_alteração"
+                android:layout_width="350sp"
+                android:layout_height="50sp"
+                android:layout_marginTop="60sp"
+                android:background="@drawable/rounded_to_button"
+                android:text="Confirmar"
+                android:textColor="#FFFFFF"
+                android:textColorHint="@color/cinza"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/senha_alterar" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

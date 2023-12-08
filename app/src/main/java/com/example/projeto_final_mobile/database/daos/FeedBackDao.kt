@@ -1,8 +1,7 @@
 package com.projeto_final_mobile.database.daos
 
-import FeedbackMarmita
+import com.projeto_final_mobile.database.models.FeedbackMarmita
 import androidx.room.*
-
 
 @Dao
 interface FeedbackMarmitaDao {

@@ -3,43 +3,105 @@
   <component name="navEditor-manualLayoutAlgorithm2">
     <option name="myPositions">
       <map>
-        <entry key="main_navegation.xml">
+        <entry key="botton_navegation_view.xml">
           <value>
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="Notification">
+                  <entry key="listaMarmitariasFragment">
                     <value>
-                      <LayoutPositions />
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="Perfil">
+                  <entry key="mapaMarmitariasFragment">
                     <value>
-                      <LayoutPositions />
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="256" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
                     </value>
                   </entry>
+                </map>
+              </option>
+            </LayoutPositions>
+          </value>
+        </entry>
+        <entry key="modificar_dados.xml">
+          <value>
+            <LayoutPositions>
+              <option name="myPositions">
+                <map>
+                  <entry key="fragmentAlterarDataUser">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="256" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="fragmentDeslogarModificar">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_fragmentDeslogarModificar_to_fragmentAlterarDataUser">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </LayoutPositions>
+          </value>
+        </entry>
+        <entry key="navegacao_gaveta.xml">
+          <value>
+            <LayoutPositions>
+              <option name="myPositions">
+                <map>
                   <entry key="homeFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="40" />
-                            <option name="y" value="40" />
+                            <option name="x" value="12" />
+                            <option name="y" value="54" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_homeFragment_to_Notification">
+                            <entry key="action_homeFragment_to_modifydataFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_homeFragment_to_Perfil">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="action_homeFragment_to_mapFragment">
+                            <entry key="action_homeFragment_to_sugestaoFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -49,105 +111,25 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="mapFragment">
+                  <entry key="modifydataFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-369" />
-                            <option name="y" value="-256" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </LayoutPositions>
-          </value>
-        </entry>
-        <entry key="mobile_navigation.xml">
-          <value>
-            <LayoutPositions>
-              <option name="myPositions">
-                <map>
-                  <entry key="nav_gallery">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="230" />
-                            <option name="y" value="12" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="nav_home">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="12" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="nav_slideshow">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="12" />
+                            <option name="x" value="256" />
                             <option name="y" value="368" />
                           </Point>
                         </option>
                       </LayoutPositions>
                     </value>
                   </entry>
-                </map>
-              </option>
-            </LayoutPositions>
-          </value>
-        </entry>
-        <entry key="mobile_navigation2.xml">
-          <value>
-            <LayoutPositions>
-              <option name="myPositions">
-                <map>
-                  <entry key="nav_gallery">
+                  <entry key="sugestaoFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="230" />
+                            <option name="x" value="256" />
                             <option name="y" value="12" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="nav_home">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="12" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="nav_slideshow">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="368" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -158,23 +140,23 @@
             </LayoutPositions>
           </value>
         </entry>
-        <entry key="nav_graph.xml">
+        <entry key="navegacao_mamitaria.xml">
           <value>
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="FirstFragment">
+                  <entry key="MarmitasListFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="230" />
+                            <option name="x" value="256" />
                             <option name="y" value="12" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_FirstFragment_to_SecondFragment">
+                            <entry key="action_MarmitasListFragment_to_descricaoFragment3">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -184,18 +166,30 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="SecondFragment">
+                  <entry key="descricaoFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="12" />
+                            <option name="x" value="-114" />
+                            <option name="y" value="207" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="listaMarmitariaFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="41" />
+                            <option name="y" value="-445" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_SecondFragment_to_FirstFragment">
+                            <entry key="action_listaMarmitariaFragment_to_listaMarmitaFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

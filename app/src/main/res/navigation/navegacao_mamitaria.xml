@@ -1,0 +1,48 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navegacao_mamitaria"
+    app:startDestination="@id/listaMarmitariaFragment">
+
+    <fragment
+        android:id="@+id/listaMarmitariaFragment"
+        android:name="com.example.projeto_final_mobile.screens.home.ListaMarmitariasFragment"
+        android:label="ListaMarmitariaFragment">
+        <action
+            android:id="@+id/action_listaMarmitariaFragment_to_listaMarmitaFragment"
+            app:destination="@id/MarmitasListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/MarmitasListFragment"
+        android:name="com.example.projeto_final_mobile.fragments.MarmitasListFragment"
+        android:label="ListaMarmitaFragment" >
+
+        <!-- Argumento para passar o email da marmitaria -->
+        <argument
+            android:name="marmitariaEmail"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_MarmitasListFragment_to_descricaoFragment3"
+            app:destination="@id/descricaoFragment" />
+
+        <!-- Ação de navegação para o DescricaoFragment -->
+
+    </fragment>
+    <fragment
+        android:id="@+id/descricaoFragment"
+        android:name="com.example.projeto_final_mobile.fragments.DescricaoFragment"
+        android:label="fragment_descricao"
+        tools:layout="@layout/fragment_descricao" >
+        <argument
+            android:name="marmitaDescricao"
+            app:argType="string" />
+        <argument
+            android:name="marmitaNome"
+            app:argType="string" />
+        <argument
+            android:name="marmitaId"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
